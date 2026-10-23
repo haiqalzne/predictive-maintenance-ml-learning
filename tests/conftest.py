@@ -1,7 +1,26 @@
 """Shared offline fixtures for the M1 data contract."""
 
+import os
+from pathlib import Path
+
+import joblib
 import pandas as pd
 import pytest
+
+
+@pytest.fixture(autouse=True)
+def block_bundled_model_loading(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Learning-fork safety: tests may load local fixtures, not shipped pickle artifacts."""
+    artifact_root = (Path(__file__).resolve().parents[1] / "artifacts").resolve()
+    original_load = joblib.load
+
+    def guarded_load(filename, *args, **kwargs):
+        candidate = filename if isinstance(filename, (str, os.PathLike)) else filename.name
+        if Path(candidate).resolve().is_relative_to(artifact_root):
+            raise RuntimeError("Learning tests must not load bundled model artifacts.")
+        return original_load(filename, *args, **kwargs)
+
+    monkeypatch.setattr(joblib, "load", guarded_load)
 
 
 @pytest.fixture

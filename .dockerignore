@@ -26,6 +26,10 @@ reports/tmp
 tests
 docs
 notebooks
+learning-runs
+.learning-cache
+.uv-cache
+.python
 *.joblib
 *.pkl
 *.pickle

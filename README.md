@@ -1,4 +1,54 @@
-# Machine Failure Risk Classifier
+# Predictive Maintenance — Learning Lab
+
+[![Learning checks](https://github.com/haiqalzne/predictive-maintenance-ml-learning/actions/workflows/learning.yml/badge.svg)](https://github.com/haiqalzne/predictive-maintenance-ml-learning/actions/workflows/learning.yml)
+
+A project-led learning fork for revising machine learning, mathematics and reliable model services.
+Start with working code, understand its decisions, reproduce a baseline, then make and evaluate one
+meaningful change. This is an educational resource in progress, not an original implementation or a
+validated industrial system.
+
+Based on [Cristóbal Vergara's Machine Failure Risk Classifier](https://github.com/xSkyLiN3/predictive-maintenance-ml)
+at revision `20371f21a15ef59598bc2d63be298b3925e434be`. The original MIT license and Git history are
+preserved. Learning material and setup additions are maintained by [haiqalzne](https://github.com/haiqalzne).
+See [provenance and changes](docs/learning/PROVENANCE.md).
+
+## Start here
+
+1. [Set up and verify the project](docs/learning/SETUP.md) — Python 3.12, isolated environment and offline tests.
+2. [Follow the learning roadmap](docs/learning/ROADMAP.md) — objectives, revision and evidence for each stage.
+3. [Trace the architecture](docs/learning/ARCHITECTURE.md) — where data, models, evaluation and API meet.
+4. [Work through the first lab](docs/learning/LAB_01.md) — features, leakage and the baseline, without final-test tuning.
+5. [Record your experiment](docs/learning/EXPERIMENT_TEMPLATE.md) — distinguish reproduction, changes and assistance.
+6. [Check verification status](docs/learning/VERIFICATION.md) and [contribution guidelines](CONTRIBUTING.md).
+
+The first planned extension compares an F1-based decision threshold with a declared error-cost rule.
+It is an exercise, not a completed improvement or a measured industrial cost model.
+
+## Boundaries
+
+- UCI AI4I 2020 is **synthetic**. The label concerns one observation; this does not establish a future
+  failure horizon, remaining useful life, calibrated probability or suitability for real machinery.
+- Original model scores and completion statements below and in existing reports are **upstream
+  evidence**, not newly reproduced results or evidence of any learner's proficiency.
+- Start with the source/test path. Do **not** automatically run the bundled model or Docker demo.
+  Joblib is pickle-based; a matching checksum establishes identity, not safety.
+- The learning test suite blocks loading the repository's bundled artifacts. Tests that need a model
+  create temporary models from synthetic fixtures. Default learning CI does not run the upstream
+  Docker/model deployment.
+- Keep your data and generated learning runs private/local by default. No credentials, paid compute,
+  API key or cloud deployment is required for setup and tests.
+
+Code/docs: [MIT](LICENSE). Source dataset: [CC BY 4.0, with attribution](docs/DATA_ATTRIBUTION.md).
+No original source CSV is distributed in this repository. AI-assisted preparation and verification
+are disclosed in [provenance](docs/learning/PROVENANCE.md).
+
+## Archived upstream overview
+
+The following original project overview is retained for reference. Its badge, demo link, scores,
+runtime artifacts and deployment instructions refer to the upstream project. For this fork, use
+the learning setup above; we have not deployed a separate public demo.
+
+### Machine Failure Risk Classifier
 
 [![CI](https://github.com/xSkyLiN3/predictive-maintenance-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/xSkyLiN3/predictive-maintenance-ml/actions/workflows/ci.yml)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)

@@ -1,5 +1,19 @@
 # Changelog
 
+## Learning-fork preparation — 2026-10-23
+
+- Added a project-led roadmap, source-first setup, architecture reading guide, first lab,
+  experiment template, contribution guidance and explicit provenance/verification records.
+- Added Linux/macOS/Windows learning CI without automatic bundled-model execution; made the
+  upstream release workflow manual and its container job opt-in.
+- Added a test guard and regression checks against loading the shipped Joblib model.
+- Fixed a cross-platform test-only floating-point comparison for Wilson interval values with
+  a narrow absolute tolerance; statistical code, model parameters and upstream results unchanged.
+- Verified the prepared source locally: 230 tests passed. This is not a new ML experiment,
+  final holdout result or independently completed learner exercise.
+
+The releases and results below belong to the upstream project and are retained as history.
+
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

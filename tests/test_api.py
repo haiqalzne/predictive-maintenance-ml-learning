@@ -316,9 +316,15 @@ def test_health_model_info_and_predict_have_exact_public_shapes(client: TestClie
             "average_precision": 0.65,
             "roc_auc": 0.90,
             "precision": 0.60,
-            "precision_wilson_95": [0.23072428127601297, 0.8823792257673521],
+            # NormalDist/libm may differ by a few ULPs across platforms.
+            # Keep the full response shape exact; tolerate only numerical roundoff.
+            "precision_wilson_95": pytest.approx(
+                [0.23072428127601297, 0.8823792257673521], rel=0, abs=1e-15
+            ),
             "recall": 0.75,
-            "recall_wilson_95": [0.300641842582402, 0.9544127391902995],
+            "recall_wilson_95": pytest.approx(
+                [0.300641842582402, 0.9544127391902995], rel=0, abs=1e-15
+            ),
             "f1": 2.0 / 3.0,
             "confusion_matrix": [[18, 2], [1, 3]],
             "holdout_rows": 24,

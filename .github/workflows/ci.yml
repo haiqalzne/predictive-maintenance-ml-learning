@@ -1,9 +1,13 @@
-name: CI
+name: Upstream release validation (manual)
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
+    inputs:
+      run_bundled_model:
+        description: "Run the upstream Docker demo, which loads the bundled Joblib model"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
@@ -157,6 +161,7 @@ jobs:
           retention-days: 14
 
   container:
+    if: ${{ inputs.run_bundled_model }}
     name: Build and smoke-test container
     needs: quality
     runs-on: ubuntu-latest
